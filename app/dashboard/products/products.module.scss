@@ -1,0 +1,103 @@
+// app/dashboard/products/products.module.scss
+.products {
+  &__show {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+
+    a,
+    button {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__edit__page {
+    &__preview {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+
+    &__image {
+      max-width: 300px;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  .price__row {
+    display: flex;
+    gap: 1rem;
+
+    > div {
+      flex: 1;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+  }
+  @media (max-width: 761px) {
+    .products__rozn {
+      display: none;
+    }
+  }
+  @media (max-width: 560px) {
+    .products__opt {
+      display: none;
+    }
+  }
+}
+.products__add__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  div {
+    width: 30%;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    div {
+      width: 100%;
+    }
+  }
+}
+.products__add__price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.products__add__title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.products__edit__page__preview {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}

@@ -1,0 +1,46 @@
+.headers__home {
+  max-width: 100%;
+  margin-bottom: 16px;
+  margin-top: 10px;
+}
+.headers {
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+.headers__columns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.hidden__input {
+  width: 100%;
+  height: 38px;
+  opacity: 0;
+  z-index: 999;
+  cursor: pointer;
+  transform: translateY(-38px);
+}
+.headers__column {
+  max-width: 50%;
+
+  &:last-child {
+    padding-left: 15px;
+  }
+  &:first-child {
+    padding-right: 15px;
+  }
+}
+.headers__internal {
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+.headers__position {
+  p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}

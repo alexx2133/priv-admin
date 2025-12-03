@@ -1,0 +1,26 @@
+.settings__link {
+  padding: 8px 16px;
+  font-size: 16px;
+  height: 42px;
+  text-wrap: nowrap;
+  border: 1px solid transparent;
+}
+.settings {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+.settings__title {
+  margin-bottom: 16px;
+}
+.active {
+  border: 1px solid #dee2e6;
+  color: #495057;
+}
+.settings__links {
+  padding-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}

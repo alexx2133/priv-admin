@@ -1,0 +1,200 @@
+.dashboard {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15px;
+  background-color: white;
+
+  a {
+    color: #007bff;
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Десктопный сайдбар - БЕЗ ИЗМЕНЕНИЙ */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
+}
+
+.row {
+  width: 295px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 50px;
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 12px 20px;
+}
+
+.title {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.link {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.logout {
+  display: block;
+  color: #007bff;
+  text-align: left;
+  min-height: 50px;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.mobileHeaderClosed {
+  opacity: 0;
+}
+/* Мобильная версия - только внутри media query */
+@media (max-width: 1100px) {
+  .dashboard {
+    padding: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .mobileHeader {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .burgerButton {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: none;
+      border: none;
+      margin-right: 15px;
+      cursor: pointer;
+
+      span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: #333;
+      }
+    }
+  }
+
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100%;
+    background: white;
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: -1;
+    &.mobileMenuOpen {
+      left: 0;
+      z-index: 1;
+    }
+
+    .mobileMenuContent {
+      padding: 60px 20px 20px;
+      position: relative;
+
+      .closeButton {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 44px;
+        cursor: pointer;
+      }
+
+      .mobileRow {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        margin-bottom: 10px;
+
+        .mobileTitle {
+          padding: 12px 15px;
+          font-weight: 600;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobileLink {
+          display: block;
+          padding: 12px 15px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+
+      .mobileLogout {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+        background: white;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        color: #007bff;
+        cursor: pointer;
+        text-align: left;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  /* Затемнение фона когда меню открыто */
+  .mobileMenu::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobileMenu.mobileMenuOpen::before {
+    opacity: 1;
+  }
+}
+
+/* Десктоп - скрываем мобильные элементы */
+@media (min-width: 1101px) {
+  .mobileHeader {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+}

@@ -1,0 +1,46 @@
+.banners {
+  table,
+  td {
+    border-collapse: collapse;
+    height: auto;
+    text-align: center;
+  }
+  td {
+    padding: 5px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  th {
+    border-bottom: 1px solid #dee2e6;
+    height: 30px;
+    padding: 5px;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+  }
+  img {
+    max-height: 100px;
+  }
+  @media (max-width: 800px) {
+    img {
+      max-height: 10vw;
+      object-fit: contain;
+    }
+  }
+  @media (max-width: 600px) {
+    img {
+      max-height: 6vw;
+    }
+  }
+}
+.banner__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.banner__show {
+  display: flex;
+  align-items: center;
+}

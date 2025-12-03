@@ -1,0 +1,29 @@
+.settings__contacts {
+  width: 100%;
+  margin-top: 30px;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    padding: 10px 15px;
+    margin-bottom: 16px;
+  }
+  b {
+    margin-bottom: 12px;
+  }
+  textarea {
+    padding: 10px 15px;
+    margin-bottom: 16px;
+    min-height: 140px;
+  }
+  button {
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745;
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    outline: none;
+  }
+}

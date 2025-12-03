@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: privoz-front-admin
+    restart: unless-stopped
+    build: .
+    ports:
+      - '3310:3310'
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://localhost:3315
