@@ -64,9 +64,9 @@ export default function HeadersSettingsPage() {
   const handleSaveText = async (id: number, value: string): Promise<void> => {
     try {
       await updateSetting(id, value);
-      alert("Настройка сохранена!");
+      // alert("Настройка сохранена!");
     } catch (error) {
-      alert("Ошибка сохранения настройки: " + (error as Error).message);
+      // alert("Ошибка сохранения настройки: " + (error as Error).message);
     }
   };
 
@@ -189,9 +189,9 @@ export default function HeadersSettingsPage() {
               <input
                 type="number"
                 value={getSettingValue("headers_home_right_x")}
-                onChange={(e) => handleChangeText(65, e.target.value)}
+                onChange={(e) => handleChangeText(67, e.target.value)}
                 onBlur={() =>
-                  handleSaveText(65, getSettingValue("headers_home_right_x"))
+                  handleSaveText(67, getSettingValue("headers_home_right_x"))
                 }
               />
             </div>
@@ -200,9 +200,9 @@ export default function HeadersSettingsPage() {
               <input
                 type="number"
                 value={getSettingValue("headers_home_right_y")}
-                onChange={(e) => handleChangeText(66, e.target.value)}
+                onChange={(e) => handleChangeText(68, e.target.value)}
                 onBlur={() =>
-                  handleSaveText(66, getSettingValue("headers_home_right_y"))
+                  handleSaveText(68, getSettingValue("headers_home_right_y"))
                 }
               />
             </div>

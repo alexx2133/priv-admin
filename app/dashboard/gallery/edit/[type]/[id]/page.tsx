@@ -22,7 +22,7 @@ export default function EditAlbumPage() {
   const [album, setAlbum] = useState<PhotoAlbum | VideoAlbum | null>(null);
   const [formData, setFormData] = useState({
     name: "",
-    sort: 0,
+    sort: "0",
   });
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function EditAlbumPage() {
         if (foundAlbum) {
           setFormData({
             name: foundAlbum.name,
-            sort: foundAlbum.sort,
+            sort: foundAlbum.sort.toString(),
           });
         }
       } else {
@@ -54,7 +54,7 @@ export default function EditAlbumPage() {
         if (foundAlbum) {
           setFormData({
             name: foundAlbum.name,
-            sort: foundAlbum.sort,
+            sort: foundAlbum.sort.toString(),
           });
         }
       }
@@ -74,12 +74,12 @@ export default function EditAlbumPage() {
       if (type === "photo") {
         await updatePhotoAlbum(parseInt(albumId), {
           name: formData.name,
-          sort: formData.sort,
+          sort: parseInt(formData.sort),
         });
       } else {
         await updateVideoAlbum(parseInt(albumId), {
           name: formData.name,
-          sort: formData.sort,
+          sort: parseInt(formData.sort),
         });
       }
 
@@ -97,7 +97,7 @@ export default function EditAlbumPage() {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "sort" ? parseInt(value) || 0 : value,
+      [name]: value,
     }));
   };
 
@@ -143,8 +143,12 @@ export default function EditAlbumPage() {
             id="sort"
             name="sort"
             value={formData.sort}
-            onChange={handleChange}
-            placeholder="0"
+            onChange={(e) => {
+              const value = e.target.value;
+              if (/^-?\d*$/.test(value) || value === "" || value === "-") {
+                handleChange(e);
+              }
+            }}
           />
         </div>
 
