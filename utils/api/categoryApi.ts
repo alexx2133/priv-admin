@@ -1,14 +1,8 @@
 import {
-  Category,
   CategoriesResponse,
-  CategoryResponse,
-  CreateCategoryData,
-  UpdateCategoryData,
-  HistoryResponse,
+  CategoryResponse
 } from "@/types/category";
 import { API_BASE_URL } from "../utils";
-import { SettingsResponse } from "@/types/settings";
-
 export const getCategories = async (): Promise<CategoriesResponse> => {
   const token = localStorage.getItem("token");
   const response = await fetch(`${API_BASE_URL}/categories`, {
@@ -27,7 +21,6 @@ export const createCategory = async (
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
-      // Не устанавливаем Content-Type - браузер сам установит с boundary для FormData
     },
     body: formData,
   });

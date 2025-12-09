@@ -19,6 +19,7 @@ export default function CategoriesPage() {
     { key: "name", label: "Название" },
     { key: "image", label: "Изображение" },
     { key: "sort", label: "Сортировка" },
+    { key: "active", label: "Активная" },
     { key: "actions", label: "Действие" },
   ];
 
@@ -103,6 +104,9 @@ export default function CategoriesPage() {
                   )}
                 </td>
                 <td className={style.hide}>{category.sort}</td>
+                <td className={style.hide}>
+                  {category.active == 1 ? "Да" : "Нет"}
+                </td>
                 <td>
                   <div className={style.categories__actions}>
                     <Link

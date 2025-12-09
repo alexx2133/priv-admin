@@ -20,8 +20,6 @@ export default function EditCategoryPage() {
   const [loading, setLoading] = useState<boolean>(false);
   const [history, setHistory] = useState<History | null>(null);
 
-  const [image, setImage] = useState<File | null>(null);
-
   useEffect(() => {
     loadHistory();
   }, [historyId]);
@@ -45,14 +43,15 @@ export default function EditCategoryPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
+    e.preventDefault();
     try {
       if (!history) return;
       await updateHistory(parseInt(historyId), history);
+      console.log("test");
+      alert("Баннер успешно обновлен");
       router.push("/dashboard/history");
     } catch (error) {
       alert("Error updating category: " + (error as Error).message);
-    } finally {
-      setLoading(false);
     }
   };
 

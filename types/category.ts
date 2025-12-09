@@ -3,6 +3,7 @@ export interface Category {
   name: string;
   image: string;
   sort: number;
+  active?: number;
 }
 export interface History {
   id?: number;

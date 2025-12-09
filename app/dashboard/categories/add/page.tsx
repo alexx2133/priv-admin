@@ -10,6 +10,7 @@ export default function AddCategoryPage() {
   const [formData, setFormData] = useState({
     name: "",
     sort: 0,
+    active: true,
   });
   const [image, setImage] = useState<File | null>(null);
 
@@ -21,6 +22,7 @@ export default function AddCategoryPage() {
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.name);
       formDataToSend.append("sort", formData.sort.toString());
+      formDataToSend.append("active", formData.active.toString());
 
       if (image) {
         formDataToSend.append("image", image);
@@ -43,6 +45,13 @@ export default function AddCategoryPage() {
     }));
   };
 
+  const handleChangeActive = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      active: value === "true" ? true : false,
+    }));
+  };
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0]);
@@ -81,6 +90,16 @@ export default function AddCategoryPage() {
           />
         </div>
         <div className={style.categories__add__page__row}>
+          <label htmlFor="sort">Состояние</label>
+          <select
+            onChange={handleChangeActive}
+            defaultValue={formData.active.toString()}
+          >
+            <option value="true">Активная</option>
+            <option value="false">Не активная</option>
+          </select>
+        </div>
+        <div className={style.categories__add__page__row}>
           <label htmlFor="image">Изображение</label>
           <input
             type="file"
@@ -102,7 +121,7 @@ export default function AddCategoryPage() {
         </div>
 
         <div className={style.categories__add__page__row}>
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} className="confirm__button">
             {loading ? "Создание..." : "Добавить категорию"}
           </button>
         </div>

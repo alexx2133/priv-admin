@@ -127,7 +127,7 @@ export default function AddProductPage() {
             onChange={handleChange}
           >
             <option value={0}>Выберите категорию</option>
-            {categories.map((category) => (
+            {categories?.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
               </option>

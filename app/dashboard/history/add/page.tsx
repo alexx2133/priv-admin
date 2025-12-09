@@ -43,7 +43,7 @@ export default function AddCategoryPage() {
   return (
     <div className={`${style.categories__add__page} container`}>
       <div className={style.categories__add__page__top}>
-        <h2>Добавление категории</h2>
+        <h2>Добавление события</h2>
         <Link href="/dashboard/history">назад</Link>
       </div>
 
@@ -82,8 +82,8 @@ export default function AddCategoryPage() {
         </div>
 
         <div className={style.categories__add__page__row}>
-          <button type="submit" disabled={loading}>
-            {loading ? "Создание..." : "Добавить категорию"}
+          <button type="submit" disabled={loading} className="confirm__button">
+            {loading ? "Создание..." : "Добавить событие"}
           </button>
         </div>
       </form>

@@ -17,6 +17,7 @@ export default function EditCategoryPage() {
   const [formData, setFormData] = useState({
     name: "",
     sort: 0,
+    active: true,
   });
   const [image, setImage] = useState<File | null>(null);
   const [currentImage, setCurrentImage] = useState<string>("");
@@ -33,6 +34,7 @@ export default function EditCategoryPage() {
       setFormData({
         name: data.category.name,
         sort: data.category.sort,
+        active: data.category.active == 1 ? true : false,
       });
       setCurrentImage(data.category.image);
     } catch (error) {
@@ -51,6 +53,7 @@ export default function EditCategoryPage() {
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.name);
       formDataToSend.append("sort", formData.sort.toString());
+      formDataToSend.append("active", formData.active.toString());
 
       if (image) {
         formDataToSend.append("image", image);
@@ -72,7 +75,13 @@ export default function EditCategoryPage() {
       [name]: name === "sort" ? parseInt(value) || 0 : value,
     }));
   };
-
+  const handleChangeActive = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      active: value === "true" ? true : false,
+    }));
+  };
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0]);
@@ -113,6 +122,16 @@ export default function EditCategoryPage() {
             onChange={handleChange}
             placeholder=""
           />
+        </div>
+        <div className={style.categories__add__page__row}>
+          <label htmlFor="sort">Состояние</label>
+          <select
+            onChange={handleChangeActive}
+            defaultValue={formData.active.toString()}
+          >
+            <option value="true">Активная</option>
+            <option value="false">Не активная</option>
+          </select>
         </div>
         <div className={style.categories__add__page__row}>
           <label htmlFor="image">Изображение</label>
