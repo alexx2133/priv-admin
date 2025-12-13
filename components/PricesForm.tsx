@@ -66,7 +66,7 @@ const PricesForm = ({ initSections }: { initSections: ProcessedSetting[] }) => {
   return (
     <div className={styles.pricing}>
       {sections
-        .sort((a, b) => Number(a.price.info) - Number(b.price.info))
+        // .sort((a, b) => Number(a.price.info) - Number(b.price.info))
         .map((section, index) => (
           <div key={index} className={styles.pricing__block}>
             <b>
