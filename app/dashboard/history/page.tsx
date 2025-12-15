@@ -24,7 +24,7 @@ const HistoryPage = () => {
     setLoading(true);
     try {
       const data = await getHistory();
-      setHistory(data.histories.sort((a, b) => b.year - a.year));
+      setHistory(data.histories.reverse().sort((a, b) => b.year - a.year));
     } catch (error) {
       alert("Error loading categories: " + (error as Error).message);
     } finally {
@@ -44,7 +44,7 @@ const HistoryPage = () => {
   return (
     <div className={`${style.categories} container`}>
       <div className={style.categories__header}>
-        <h2>Новости</h2>
+        <h2>События</h2>
         <Link href="/dashboard/history/add" className={style.categories__add}>
           Добавить
         </Link>
