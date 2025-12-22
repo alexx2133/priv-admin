@@ -132,12 +132,12 @@ const ProductsPage = () => {
                     >
                       Изменить
                     </Link>
-                    <button
+                    {/* <button
                       onClick={() => handleDelete(product.id)}
                       className={cat.categories__delete}
                     >
                       Удалить
-                    </button>
+                    </button> */}
                   </div>
                 </td>
               </tr>
