@@ -285,7 +285,8 @@ const ProductHistoryPage = () => {
             {history.length > 0 ? (
               history.map((item, i) => (
                 <tr key={i}>
-                  <td>{i+1} {item?.product_name}</td>
+                  <td>{i+1}<input type="checkbox"></input></td>
+                  <td> {item?.product_name}</td>
                   <td>{item.opt_price_min}</td>
                   <td>{item.opt_price_max}</td>
                   <td>{getUnitText(item.opt_unit)}</td>
